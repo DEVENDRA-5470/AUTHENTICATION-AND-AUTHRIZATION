@@ -5,7 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
+<style>
+    .bar{
+        padding: 10px;
+        min-height:300px ;
+        width: 300px;
+        content: attr();
+        border: 1px solid rgba(182, 181, 179, 0.336);
+        background-color: rgb(0, 255, 191);
+        margin: -100px auto;
+    }
+    .bar a{
+
+        display:block;
+        text-align: center;
+        
+    }
+    .bar button{
+        width: 45%;
+        margin-top: 10px;
+        padding: 8px;
+        border: 1px solid rgb(189, 184, 184);
+        border-radius: 3px;
+        cursor: pointer;
+    }
+</style>
 <body>
-    <h1>This is my home page</h1>
+    <h1>Authentication and Authorization</h1>
+    <h2>Features</h2>
+    <ol>
+            <li>Sign In</li>
+            <li>Log In</li>
+            <li>Logout</li>
+            <li>Change password</li>
+            <li>Reset password</li>
+            <li>Email login</li>
+            <li>Social Login</li>
+        </ol>
+    
+
+<div class="bar">
+
+    Total User: {{user.count}}
+    <a href="{% url 'sign_up' %}"><button>Sign In</button></a>
+    <a href="{% url 'login_form' %}"><button>Log In</button></a>
+    <a href="{% url 'logout_here' %}"><button>Logout</button></a>
+    <a href="{% url 'change_pass' %}"><button>Change Password</button></a>
+    <a href="{% url 'pass_reset' %}"><button>Reset Password</button></a>
+    <a href="{% url 'dashboard' %}"><button>Dashboard</button></a>
+    <a href=""><button>Login via email</button></a>
+    <a href=""><button>Login with social</button></a>
+</div>
+
+
+    <div>
+
+        {% for u in user %}
+        
+        <!-- <hr>
+        <h4>{{u.first_name}}</h4>
+        <h4>{{u.last_name}}</h4>
+        <h4>{{u.email}}</h4>
+        <h4>{{u.email}}</h4> -->
+        {% endfor %}
+    </div>
 </body>
 </html>

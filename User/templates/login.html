@@ -9,6 +9,11 @@
     {% bootstrap_css %}
     {% bootstrap_javascript %}
 
+    <style>
+        .red{
+            color: orangered;
+        }
+    </style>
   
 </head>
 <body>
@@ -25,7 +30,7 @@
         
     </div>
     <div class="d-flex justify-content-center ">
-        <div class="bg-light p-5">
+        <div class="bg-light p-5 rounded shadow">
             
             
             <form action="" method="post" novalidate  >
@@ -33,18 +38,19 @@
                 {% csrf_token %}
 
 
-                <div class="form-group " >
+                <div class="form-group ">
                     <div >
                         <h3>Login Here</h3>
 
 
                        <div class="mt-2"> 
-                        {{ form.username.label_tag }} {{ form.username }}
+                       <!-- <span>  {{ form.username.label_tag }}  </span>  -->
+                        {{ form.username }}
                        
                     <div  style="height: 22px;">
 
                         {% for error in form.username.errors %}
-                        <small style="color: orangered;" class="" role="">
+                        <small class="red" role="">
                             {{ error }}
                         </small>
                         {% endfor %}
@@ -54,13 +60,15 @@
                     </div>
 
                     <div style="position: relative; " >
-                        <span onclick="f()" style="position: absolute; margin-top: 30px ;margin-right: 10px; right: 0;"><img width="15px" src="{% static '/img/hide.png' %}" alt=""></span>
-                        <div  class="">{{ form.password.label_tag }} {{ form.password }}
+                        <span onclick="f()" style="position: absolute; margin-top: 6px ;margin-right: 10px; right: 0;"><img width="15px" src="{% static '/img/hide.png' %}" alt=""></span>
+                        <div  class="">
+                            <!-- <span>{{ form.password.label_tag }} </span>  -->
+                            {{ form.password }}
                 
-                            <div style="height: 22px;">
+                            <div style="height: 2px;">
 
                                 {% for error in form.password.errors %}
-                                <small style="color: orangered;" class="" role="">
+                                <small class="red"  role="">
                                     {{ error }}
                                 </small>
                                 {% endfor %}
@@ -73,14 +81,17 @@
                 </div> 
                 
             
-                <button class="btn btn-success mt-2"  type="submit">Login Now</button>
+                <button class="btn btn-success mt-4"  type="submit">Login Now</button>
             </form>
             
 
 
             
             
-    </div>
+            <a  href="{% url 'sign_up' %}">Create a new account</a>   
+            <a class="red" href="{% url 'pass_reset' %}">Recover Password ?</a>
+
+        </div>
     </div>
 
     <script>

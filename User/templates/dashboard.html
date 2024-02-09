@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .log {
+
+        float: right; 
+        position: absolute; 
+        right: 35px; 
+        top: 15px; 
+        background-color: rgb(216, 247, 250);
+        padding: 10px;
+        text-decoration: none;
+        color: rgb(53, 18, 5);
+        font-weight: 800;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .logg {
+        z-index: 2;
+        
+        position: absolute; 
+        right: 35px; 
+        top: 58px; 
+        background-color: rgb(142, 226, 210);
+        padding: 10px;
+        text-decoration: none;
+        color: rgb(53, 18, 5);
+        font-weight: 800;
+        border-radius: 5px;
+        transition: 1s all;
+    }
+    #l{
+        display: inline;
+    }
+</style>
+<body>
+    <Center><H2>Dashboard</H2></Center>
+    <input type="range" value="{{user.count}}">
+    
+
+    <div class="logg" id="l">
+            <ul type="none">
+                <li><a href="{% url 'logout_here' %}">Logout</a></li>
+                <li><a class="red" href="{% url 'change_pass' %} ">Change Password</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+    <button onclick="hide()" class="log">Profile</button>
+
+    <hr>
+    
+
+    
+    <script>
+        function hide(){
+           let d=document.getElementById('l')
+           if (d.style.display=="inline"){ 
+               d.style.display="none"
+            }
+            else{
+                d.style.display="inline"
+            }
+        }
+    </script>
+</body>
+</html>
